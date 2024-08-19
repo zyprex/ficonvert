@@ -1,5 +1,4 @@
 #include "ficonvert.h"
-#include "ficonvert_excmd.h"
 
 char* old_name = NULL;
 FREE_IMAGE_FORMAT old_fmt = FIF_UNKNOWN;
@@ -91,10 +90,12 @@ int main(int argc, char *argv[]) {
         "\t|brightness|DOUBLE:-100~100|brightness-50|\n"
         "\t|contrast|DOUBLE:-100~100|contrast80|\n"
         "\t|invert||invert|\n"
+        "\t|crop[4]|DOUBLE:0.0~|crop0.1:50:0.1:50|\n"
         "\n"
         "\t[1]: 0=FILTER_BOX,1=FILTER_BICUBIC,2=FILTER_BILINEAR,\n3=FILTER_BSPLINE,4=FILTER_CATMULLROM,5=FILTER_LANCZOS3 \n"
         "\t[2]: 0=FIQ_WUQUANT,1=FIQ_NNQUANT,2=FIQ_LFPQUANT\n"
         "\t[3]: BITMAP,UINT16,INT16,UINT32,INT32,FLOAT,DOUBLE,COMPLEX,RGB16,RGBA16,RGBF,RGBAF\n"
+        "\t[4]: The crop edge order is left, top, right, bottom;\n if between 0 and 1, use it as percent, e.g. 0.5 = 50%%\n"
         "\n"
         "\tTips:\n"
         "\t1. GIF need downgrade bpp to 8, use quantize to keep color\n"

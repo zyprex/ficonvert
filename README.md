@@ -78,6 +78,13 @@ for i in $(find . -type f -name *.png); do
 done
 ```
 
+7. crop one image to half.
+
+```
+ficonvert test.jpg left.jpg 0 crop0:0:0.5:0
+ficonvert test.jpg right.jpg 0 crop0.5:0:0:0
+```
+
 # Notice
 
 For more details, please read the code and refer to FreeImage's document.

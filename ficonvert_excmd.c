@@ -13,6 +13,7 @@ struct _t_excmd {
   {"brightness", excmd_brightness},
   {"contrast", excmd_contrast},
   {"invert", excmd_invert},
+  {"crop", excmd_crop},
 };
 int excmd_list_len = sizeof(excmd_list) / sizeof(struct _t_excmd);
 
@@ -172,3 +173,32 @@ FIBITMAP* excmd_invert(FIBITMAP* dib, char* param) {
   printf("INFO: invert image %s\n", param);
   return dib;
 }
+
+FIBITMAP* excmd_crop(FIBITMAP* dib, char* param) {
+  int l, t, r, b;
+  double sl, st, sr, sb;
+  int w = FreeImage_GetWidth(dib);
+  int h = FreeImage_GetHeight(dib);
+
+  sscanf(param, "%lf:%lf:%lf:%lf", &sl, &st, &sr, &sb);
+
+
+  if (sl < 1.0) sl *= w;
+  if (sr < 1.0) sr *= w;
+  if (st < 1.0) st *= h;
+  if (sb < 1.0) sb *= h;
+
+  printf("INFO: crop delt %.2lf %.2lf %.2lf %.2lf\n", sl, st, sr, sb);
+
+  l = (int)sl;
+  t = (int)st;
+  r = (int)(w - sr);
+  b = (int)(h - sb);
+
+  printf("INFO: crop rect %d %d %d %d\n", l, t, r, b);
+
+  FIBITMAP* dib2 = NULL;
+  dib2 = FreeImage_Copy(dib, l, t, r, b);
+  RET_DIB2;
+}
+

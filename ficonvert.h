@@ -1,15 +1,12 @@
 #pragma once
 #include "FreeImage.h"
+#include "ficonvert_excmd.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
-
-
-
 #define STF(x) { x , #x },
-
 // literal string to format value
 struct _t_stfif {
   FREE_IMAGE_FORMAT fif;

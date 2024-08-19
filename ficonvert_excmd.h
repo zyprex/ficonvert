@@ -20,3 +20,4 @@ FIBITMAP* excmd_brightness(FIBITMAP* dib, char* param);
 FIBITMAP* excmd_contrast(FIBITMAP* dib, char* param);
 FIBITMAP* excmd_invert(FIBITMAP* dib, char* param);
 
+FIBITMAP* excmd_crop(FIBITMAP* dib, char* param);
