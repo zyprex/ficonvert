@@ -25,7 +25,7 @@ correctly, we use the extra cmd  `bpp24` because PNG's bpp could be 32.
 ficonvert sample.png sample.jpg JPEG_QUALITYGOOD bpp24
 ```
 
-3. Convert image and apply some image affects.
+3. Convert image and apply some image effects.
 
 ```
 ficonvert sample.jpg sample.tiff 0 rotate14.4,flipV,gamma0.1,invert
@@ -91,3 +91,4 @@ For more details, please read the code and refer to FreeImage's document.
 
 Keep in mind, the converter will overwrite any exist file, test before run !
 
+If want lossless jpeg operation, use `fijpeg` instead.
