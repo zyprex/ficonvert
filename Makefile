@@ -6,9 +6,16 @@ LD_PATH = -L.\\ -lfreeimage
 
 RM = del
 
-
 OBJS = ficonvert.o ficonvert_excmd.o
 TARGET = ficonvert.exe
+
+OBJS2 = fijpeg.o
+TARGET2 = fijpeg.exe
+
+all: $(TARGET2) $(TARGET)
+
+$(TARGET2):  $(OBJS2)
+	$(CC) $(LD_PATH) $^ -o $(TARGET2)
 
 $(TARGET):  $(OBJS)
 	$(CC) $(LD_PATH) $^ -o $(TARGET)
@@ -17,5 +24,5 @@ $(TARGET):  $(OBJS)
 	$(CC) $(CFLAGS) $^
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJS2)
 
